@@ -148,9 +148,7 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
             <p class="card-text"><strong>Company:</strong> ${
               seller.company?.name || "N/A"
             }</p>
-             <p class="card-text"><strong>Status:</strong> ${
-               seller.status?.status || "N/A"
-             }</p>
+             <p class="card-text"><strong>Verified:</strong> <span class="badge bg-success">Active Agent</span></p>
           </div>
         </div>
       `;

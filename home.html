@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MabatiTrust | Secure. Verify. Buy.</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#home">MSVS</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Sign In</a>
+            </li>
+            <li class="nav-item ms-2">
+              <button
+                class="btn btn-primary btn-register"
+                data-bs-toggle="modal"
+                data-bs-target="#registrationModal"
+              >
+                Register
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section with Search -->
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h1 class="hero-title">Secure. Verify. Buy.</h1>
+            <p class="hero-subtitle">
+              Protecting buyers and verifying mabati sellers<br />
+              for safe and trusted transactions.
+            </p>
+            <div class="search-container mt-4">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control search-input"
+                  placeholder="Search by name, phone, or agent code..."
+                  id="searchInput"
+                />
+                <button class="btn btn-primary" type="button" id="searchBtn">
+                  <i class="bi bi-search"></i> Search
+                </button>
+              </div>
+              <div class="row" id="sellerList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verified Sellers Section -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="fw-bold">Verified Sellers</h5>
+          <a href="/frontend/report.html" class="btn btn-outline-danger btn-sm">
+            Report a Seller
+          </a>
+        </div>
+
+        <!-- Seller Results -->
+        <div class="row" id="sellerList">
+          <!-- This card will be inserted via JS -->
+        </div>
+
+        <!-- No Result Message -->
+        <div
+          id="noResult"
+          class="text-center text-muted mt-4"
+          style="display: none"
+        >
+          <p>
+            No seller found. Please check the name, phone, or agent code and try
+            again.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <div class="mb-2">
+              <i class="bi-shield-check" style="font-size: 2rem"></i>
+            </div>
+            <h6 class="fw-bold">Seller Verification</h6>
+            <p>
+              Rigorous verification process for sellers to ensure authenticity.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-2">
+              <i class="bi-geo-alt" style="font-size: 2rem"></i>
+            </div>
+            <h6 class="fw-bold">Authentication and Tracking</h6>
+            <p>Track and authenticate your orders and sellers.</p>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-2">
+              <i class="bi-lock" style="font-size: 2rem"></i>
+            </div>
+            <h6 class="fw-bold">Buyer Protection</h6>
+            <p>
+              Search and connect with verified sellers for safe transactions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registrationModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <i class="bi bi-building me-2"></i>Company Registration
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="registrationForm" enctype="multipart/form-data">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Company Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    required
+                  />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="type" class="form-label">Business Type *</label>
+                  <select class="form-select" id="type" name="type" required>
+                    <option value="">Select Business Type</option>
+                    <option value="Manufacturer">Manufacturer</option>
+                    <option value="Distributor">Distributor</option>
+                  </select>
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="location" class="form-label">Location *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="location"
+                    name="location"
+                    required
+                  />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email Address *</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    required
+                  />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="password" class="form-label">Password *</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    required
+                    minlength="6"
+                  />
+                  <div class="form-text">
+                    Password must be at least 6 characters long
+                  </div>
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="confirmPassword" class="form-label"
+                    >Confirm Password *</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    required
+                  />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="kraPin" class="form-label"
+                    >KRA PIN Certificate *</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="kraPin"
+                    name="kraPin"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    required
+                  />
+                  <div class="form-text">
+                    Upload KRA PIN certificate (PDF, JPG, PNG)
+                  </div>
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="certificateOfIncorporation" class="form-label"
+                    >Certificate of Incorporation *</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="certificateOfIncorporation"
+                    name="certificateOfIncorporation"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    required
+                  />
+                  <div class="form-text">
+                    Upload Certificate of Incorporation (PDF, JPG, PNG)
+                  </div>
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-12">
+                  <div class="alert alert-info">
+                    <i class="bi bi-info-circle me-2"></i>
+                    <strong>Note:</strong> Your registration will be reviewed by
+                    our team. You will receive an email notification once your
+                    account is approved.
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <!-- ✅ Correct version -->
+            <button
+              type="button"
+              class="btn btn-success btn-submit"
+              id="submitBtn"
+            >
+              <span
+                class="spinner-border spinner-border-sm me-2 d-none"
+                id="loadingSpinner"
+              ></span>
+              <i class="bi bi-check-circle me-2" id="submitIcon"></i>Submit
+              Registration
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/home.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Company Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/frontend/css/style.css" />
+  </head>
+  <body>
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <nav
+        class="sidebar bg-dark text-white p-3 min-vh-100"
+        style="width: 250px"
+      >
+        <h4 class="text-center mb-4">Company Panel</h4>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-white active" href="index.html"
+              >📊 Dashboard</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="add-agents.html"
+              >➕ Add Agent</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="view-agents.html"
+              >👥 My Agents</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="profile.html">🧾 Profile</a>
+          </li>
+          <li class="nav-item mt-3">
+            <button id="logoutBtn" class="btn btn-outline-danger w-100">
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="p-4 flex-grow-1">
+        <h2 class="mb-4">Welcome , <span id="companyName"></span></h2>
+
+        <!-- Stats Cards -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card text-white bg-primary shadow mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Total Sales Agents</h5>
+                <p class="card-text fs-3" id="totalAgents">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Company Info -->
+        <div class="card border-0 shadow-sm p-3 mb-4">
+          <h5 class="card-title mb-3">Company Information</h5>
+          <p><strong>Business name:</strong> <span id="companyName"></span></p>
+          <p><strong>Business Type:</strong> <span id="businessType"></span></p>
+          <p><strong>Location:</strong> <span id="location"></span></p>
+          <p><strong>Email:</strong> <span id="email"></span></p>
+          <p>
+            <strong>Status:</strong>
+            <span id="status" class="badge bg-success text-uppercase"></span>
+          </p>
+        </div>
+      </div>
+      <!-- Company Documents -->
+      <div class="card border-0 shadow-sm p-3 mb-4">
+        <h5 class="card-title mb-3">Submitted Documents</h5>
+        <ul class="list-group">
+          <li class="list-group-item">
+            KRA PIN:
+            <a
+              href="#"
+              target="_blank"
+              id="kraPinLink"
+              class="ms-2 text-primary"
+              >View</a
+            >
+          </li>
+          <li class="list-group-item">
+            Business License:
+            <a
+              href="#"
+              target="_blank"
+              id="licenseLink"
+              class="ms-2 text-primary"
+              >View</a
+            >
+          </li>
+          <li class="list-group-item">
+            Certificate of Incorporation:
+            <a
+              href="#"
+              target="_blank"
+              id="certificateLink"
+              class="ms-2 text-primary"
+              >View</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
